@@ -40,6 +40,13 @@ const transaction = [
 		price: 22,
 		category: 'Fruit',
 		itemName: 'Mango',
+	},
+  {
+		id: 1,
+		timestamp: 1656076800000,
+		price: 22,
+		category: 'Meat',
+		itemName: 'Chicken',
 	}
 ]
 function calculateTotalSpentByCategory(transactions) {

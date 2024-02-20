@@ -4,7 +4,12 @@
 */
 
 function isPalindrome(str) {
-  return true;
+  let inputStr = str.toLowerCase();
+  let inputStrSplit = inputStr.split("").reverse().join("");
+  return inputStr === inputStrSplit
+  // console.log(inputStrSplit)
+  // return true;
 }
-
-module.exports = isPalindrome;
+let boolRes = isPalindrome("Nan");
+console.log(boolRes);
+// module.exports = isPalindrome;
