@@ -1,10 +1,11 @@
 import express from "express";
-import {signin} from "../controllers/auth.js";
+import {signin,verifyUser} from "../controllers/auth.js";
 
 const router = express.Router();
 
 const routes = ()=>{
   router.post('/signin',signin);
+  router.get('/users',verifyUser);
 
   return router;
 }
