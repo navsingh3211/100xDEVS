@@ -31,10 +31,11 @@
     //   let sum = n1+n2;
     //   document.getElementById('container').innerHTML = `Sum is :`+sum;
     // }
-    
+
+    // debouncing
     let timeout;
     function debouncePopulateDiv(){
-      clearTimeout(timeout);
+      clearTimeout(timeout);//cancel the clock
       timeout = setTimeout(function(){
         PopulateDiv();
       },1000);
@@ -47,10 +48,10 @@
       n2 = Number(n2)
       fetch("https://sum-server.100xdevs.com/sum?a=" + n1 + "&b=" + n2)
       .then(function(response){
-        response.text()
-          .then(function(ans){
-            document.getElementById("container").innerHTML = ans;
-          })
+        return response.text()
+      })
+      .then(function(ans){
+        document.getElementById("container").innerHTML = ans;
       })
       
     }
