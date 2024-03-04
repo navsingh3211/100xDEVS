@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="container" style="background-color: bisque;">
+  </div>
+  <script>
+    function doSum(){
+      let n1 = document.getElementById('n1').value;
+      n1 = Number(n1)
+      let n2 = document.getElementById('n2').value;
+      n2 = Number(n2)
+      // console.log( n1,  n2,'n2');
+      let sum = n1+n2;
+      document.getElementById('container').innerHTML = sum;
+    }
+  </script>
+  <input type="number" id="n1" placeholder="first value"> <br></br>
+  <input type="number" id="n2" placeholder="second value"> <br></br>
+  <button onclick="doSum()">do sum</button>
+</body>
+</html>
