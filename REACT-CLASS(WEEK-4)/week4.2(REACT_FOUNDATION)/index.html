@@ -1,0 +1,73 @@
+<html>
+
+  <script>
+
+    let globalId = 0;
+    function markAsDone(todoId){
+      const parent = document.getElementById(todoId);
+      console.log(parent.children[2])
+      parent.children[2].innerHTML = 'DONE!';
+    }
+    function createChild(title,description,id){
+      let child = document.createElement('div');
+
+      let firstGrandChild = document.createElement('div');
+      firstGrandChild.innerHTML = title;
+
+      let secondGrandChild = document.createElement('div');
+      secondGrandChild.innerHTML = description;
+
+      let thirdGrandChild = document.createElement('button');
+      thirdGrandChild.innerHTML = 'Mark as done';
+
+      thirdGrandChild.setAttribute("onclick",`markAsDone(${id})`);
+
+      child.appendChild(firstGrandChild);
+      child.appendChild(secondGrandChild);
+      child.appendChild(thirdGrandChild);
+      child.setAttribute("id",id);
+      return child;
+    }
+
+    function addTodo(){
+      const title = document.getElementById("title").value;
+      const description = document.getElementById("description").value;
+      // const oriHtml = document.getElementById('container').innerHTML;
+
+      //document.createElement
+      // const outerDiv = document.createElement("div");//in memory div creation
+      // outerDiv.innerHTML = title;
+      // document.getElementById("container").appendChild(outerDiv);
+
+      let parent = document.getElementById("container");
+      parent.appendChild(createChild(title,description,globalId++));
+
+
+
+
+
+
+
+
+
+
+      //m-1 basic 
+      // document.getElementById('container').innerHTML = oriHtml + 
+      // `
+      // <div>
+      //   <div>${title}</div>
+      //   <div>${description}</div>
+      //   <button>Mark as Done</button>
+      // </div>
+      // `
+    }
+  </script>
+
+
+  <div>
+    <input id="title" type="text" placeholder="title"> </input> <br></br>
+    <input id="description" type="text" placeholder="description"> </input> <br></br>
+    <button onclick="addTodo()">Add button</button>
+  </div>
+  <div id="container"></div>
+</html>
