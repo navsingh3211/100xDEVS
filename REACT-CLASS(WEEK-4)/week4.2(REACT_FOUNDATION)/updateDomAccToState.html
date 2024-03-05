@@ -1,5 +1,11 @@
-<html>
-
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
   <script>
 
     let globalId = 1;
@@ -8,6 +14,7 @@
       console.log(parent.children[2])
       parent.children[2].innerHTML = 'DONE!';
     }
+
     function createChild(title,description,id){
       let child = document.createElement('div');
 
@@ -60,7 +67,13 @@
         parent.appendChild(child);
       }
     }
-    updateDomAccToState([]);
+
+    window.setInterval(async function(){
+      const data = await fetch("https://sum-server.100xdevs.com/todos");
+      const json = await data.json();
+      updateDomAccToState(json.todos)
+      // console.log(json,'data++')
+    },1000)
   </script>
 
 
@@ -70,4 +83,5 @@
     <button onclick="addTodo()">Add button</button>
   </div>
   <div id="container"></div>
+</body>
 </html>
