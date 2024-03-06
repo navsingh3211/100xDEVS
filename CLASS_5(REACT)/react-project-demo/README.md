@@ -1,4 +1,6 @@
 # React + Vite
+1.) npm create vite@latest   //1:11
+2.) npm i
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
