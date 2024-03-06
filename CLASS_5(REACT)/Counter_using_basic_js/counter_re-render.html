@@ -9,17 +9,21 @@
       let state = {
         count: 0,
       };
+
+      /*on button press re-rendering will be happen again and again*/
       function onButtonPress() {
         state.count++;
-        buttonComponentRerender();
+        buttonComponentRerender(); // on state change, do a re-render
       }
 
+      /* this function will take care of re-rendering in the Dom*/
       function buttonComponentRerender() {
-        document.getElementById("buttonParent").innerHTML = "";
-        const buttonComponent = createbuttonComponent(state.count);
-        document.getElementById("buttonParent").appendChild(buttonComponent);
+        document.getElementById("buttonParent").innerHTML = "";// clear the dom
+        const buttonComponent = createbuttonComponent(state.count); // create a button
+        document.getElementById("buttonParent").appendChild(buttonComponent); //add a button the parent node
       }
 
+      /* creating the button*/
       function createbuttonComponent(count) {
         let button = document.createElement("button");
         button.innerHTML = `Counter ${count}`;
