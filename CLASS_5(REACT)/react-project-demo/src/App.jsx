@@ -1,26 +1,52 @@
-import { useState } from 'react'
-import './App.css'
+/* eslint-disable react/jsx-key */
+/* eslint-disable react/prop-types */
+import { useState } from "react";
 
+
+/* Any time a parent re-render ,its child re-render as well   */
 function App() {
-  // const [count, setCount] = useState(0)
+  const [todos,setTodos] = useState([
+    {
+      title:"Go to gym",
+      description:"We should go to gym 7-9",
+      completed:false
+    },
+    {
+      title:"Study DAS",
+      description:"We should Study DAS 9-11",
+      completed:true
+    }
+  ]);
+  function addTodo(){
+    console.log('add to do func');
+    setTodos([...todos,{
+      title:"New title",
+      description:"New title will be done after some time"
+    }])
+  }
+  console.log('inside app');
   return (
+    // console.log();
     <div>
-      hi there how are you bro
-        {/* <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button> */}
-        {/* <Button count = {count} setCount = {setCount}></Button> */}
+      <button onClick={addTodo}>Add a random todo</button>
+      {
+        todos.map((data)=>{
+          return <TODO title={data.title} description={data.description}/>
+        })
+      }
     </div>
   )
 }
 
-// function Button(props){
-//   // console.log(props);
-//   function onButtonClick(){
-//     props.setCount(props.count + 1);
-//   }
+function TODO(props){
+  console.log('inside to do func');
+  return <div> 
+    <h1>{props.title}</h1>
+    <h3>{props.description}</h3>
+    {/* <button></button> */}
+  </div>
+}
 
-//   return <button onClick={onButtonClick}>Counter is : {props.count} </button>
-// }
+
 
 export default App
