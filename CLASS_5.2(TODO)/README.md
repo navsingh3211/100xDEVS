@@ -6,4 +6,8 @@
  - Anyone can see existing todos
  - Anyone can mark a todos as done
 
- 43:00
+
+ # React + Vite
+1.) npm create vite@latest  
+2.) npm i
+

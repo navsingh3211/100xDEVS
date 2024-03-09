@@ -4,7 +4,6 @@ import toDoModel from '../models/todo.js';
 export const toDo = async (req,res,next)=>{
   try{
     const createPayload = req.body;
-    
     const parsePayload = createTodoVal.safeParse(createPayload);
     if(!parsePayload.success){
       return res.status(411).json({
@@ -80,6 +79,7 @@ export const complateTodo = async (req,res,next)=>{
         data:null
       })
     }
+
   }catch(error){
     console.log(error);
   }
