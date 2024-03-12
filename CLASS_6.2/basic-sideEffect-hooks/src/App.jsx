@@ -44,14 +44,17 @@ function App() {
 
 function ToDo({id}){
   const [todo,setTodo] = useState({});
-  console.log(id,'id++++++++++++++==');
+  // console.log(id,'id++++++++++++++==');
   useEffect(()=>{
-    let fetchData = async()=>{
-      const response = await axios.get('https://sum-server.100xdevs.com/todo?id='+id);
-      setTodo(response.data.todo)
-      // console.log(response.data.todo,'response++')
-    }
-    fetchData();
+    setTimeout(()=>{
+      let fetchData = async()=>{
+        const response = await axios.get(`https://sum-server.100xdevs.com/todo?id=${id}`);
+        setTodo(response.data.todo)
+        // console.log(response.data.todo,'response++')
+      }
+      fetchData();
+    },2000)
+    
   },[id]);
 
   return (
@@ -59,6 +62,7 @@ function ToDo({id}){
       <h1 style={{color:"yellow"}}>Todos Details by id:</h1>
       <ShowCard 
         key={todo.id} 
+        id={id}
         title={todo.title}
         description = {todo.description}
       />
@@ -69,9 +73,15 @@ function ToDo({id}){
 
 function ShowCard(props){
   return <div>
-      <p>{props.id}</p>
-      <h1>{props.title}</h1>
-      <h2>{props.description}</h2>
+      {
+        props ? 
+            <div style={{color:'darkviolet'}}>
+              <h1>#{props.id}</h1>
+              <h2>{props.title}</h2>
+              <h3>{props.description}</h3>
+            </div> : <p>No data found</p>
+      }
+      
   </div>
 }
 
