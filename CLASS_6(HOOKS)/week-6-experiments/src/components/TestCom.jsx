@@ -4,7 +4,7 @@ import React ,{useState}from 'react'
 
 // title={'Jai sheree ram'} name={'Ram singh'}
 export const TestCom = ()=>{
-  // const [name,setName] = useState('Ram singh');
+  // const [name,setName] = useState('Ram singh'); 
   const [title,setTitle] = useState('Ayodhaya');
   function updateTitleHandler(){
     setTitle(Math.random);
