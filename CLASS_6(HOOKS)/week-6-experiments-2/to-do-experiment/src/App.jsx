@@ -3,12 +3,15 @@ import { useEffect, useState } from "react";
 
 function App(){
     const [todos,setTodos] = useState([]);
-
+   
     useEffect(()=>{
-        fetch("https://sum-server.100xdevs.com/todos").then(async(data)=>{
+        setInterval(()=>{ 
+            fetch("https://sum-server.100xdevs.com/todos")
+            .then(async(data)=>{
             let result = await  data.json();
             setTodos(result.todos);
-        });
+            })
+        },4000);
     },[]);
     return <div>
         <h1 style={{color:"yellow"}}>Todos Listing:</h1>
