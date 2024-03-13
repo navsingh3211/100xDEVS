@@ -1,1 +1,1 @@
-#1 hours
+#1:30 hours
