@@ -7,28 +7,19 @@ var a = 1;
 function App(){
   const [count,setCount] = useState(0);
 
-  /*
-    useCallback:
-    *used to memoize functions, 
-    which helps in optimizing performance by avoiding 
-    unnecessary re-renders of components that depend on these functions. 
-  */
-  // function a(){
-  //   console.log("hi there");
-  // }
-  const a = useCallback(function(){
-    console.log("hi there");
-  },[])
+  function clickMe(){
+    console.log("child clicked");
+  }
   return <div>
     <button onClick={()=>setCount(count+1)}>Click me {count}</button>
-    <Demo a={a}/>
+    <Child a={clickMe}/>
   </div>
 }
 
-const Demo= memo(function({a}){
-  console.log('re-render+++');
+const Child= memo(function({onClickFunc}){
+  console.log('child re-render+++');
   return <div>
-    hi bro... {a}
+    <button onClick={onClickFunc}>Child btn</button>
   </div>
 })
 
