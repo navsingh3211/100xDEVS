@@ -12,7 +12,10 @@ export const Assignment3 = () => {
     ]);
 
     // Your code starts here
-    const totalValue = 0;
+    const totalvalue = useMemo(()=>{
+        return items.reduce((sum,item)=>sum+ item.value,0);
+    },[items]);
+    // const totalvalue = items.reduce((sum,item)=>sum+ item.value,0);
     // Your code ends here
     return (
         <div>
@@ -21,7 +24,7 @@ export const Assignment3 = () => {
                     <li key={index}>{item.name} - Price: ${item.value}</li>
                 ))}
             </ul>
-            <p>Total Value: {totalValue}</p>
+            <p>Total Value: {totalvalue}</p>
         </div>
     );
 };
