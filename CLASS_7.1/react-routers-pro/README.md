@@ -1,1 +1,1 @@
-#4o minutyes
+#1:10 minutyes
