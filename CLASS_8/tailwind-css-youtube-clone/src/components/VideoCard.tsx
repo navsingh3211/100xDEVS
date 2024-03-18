@@ -1,5 +1,5 @@
 export  function VideoCard(props:any){
-  return <div>
+  return <div className="p-3 cursor-pointer">
     <img src={props.image} className="rounded-xl"></img>
     <div className="grid grid-cols-12 pt-2">
       <div className="col-span-1">
