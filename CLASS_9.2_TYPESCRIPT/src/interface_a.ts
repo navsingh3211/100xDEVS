@@ -5,14 +5,14 @@ const user = {
 	age: 21,
 }
 
-interface User{
+interface User2{
   firstName: string,
 	lastName: string,
 	email?: string,
 	age: number,
 }
 
-function isLegal(user:User){
+function isLegal(user:User2){
   return user.age>18;
 }
 
