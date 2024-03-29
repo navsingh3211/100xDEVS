@@ -28,4 +28,9 @@ interface Manager {
 }
 
 type TechLead = Employee2 & Manager;
+const t:TechLead = {
+	name:"Ram ji",
+	department:"as dbans",
+	startDate:new Date()
+}
 

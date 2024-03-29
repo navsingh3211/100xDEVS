@@ -1,0 +1,2 @@
+//interface can be implemented by classes
+//types let u do unions and intersection
