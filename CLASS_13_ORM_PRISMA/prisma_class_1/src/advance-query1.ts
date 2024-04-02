@@ -23,6 +23,11 @@ async function main(){
       }
     }
   });
-  console.log(res,'res');
+
+  let res2 = await prisma.post.findMany({
+    take:2,
+    skip:2
+  });
+  console.log(res2,'res2');
 }
 main();
