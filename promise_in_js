@@ -1,0 +1,139 @@
+//   1.)/Basic Promise Creation:
+//Write a function that returns a Promise which resolves after a specified time (e.g., 1 second).
+
+// 2.)Chaining Promises:
+// Create two functions, asyncOperation1 and asyncOperation2, each returning a Promise. Chain these two functions together so that asyncOperation2 runs after asyncOperation1 completes.
+
+// 3.) Promise Error Handling:
+// Write a Promise chain where an error is intentionally thrown in the middle. Implement error handling to catch and log the error.
+// Promise.all:
+
+// 4.) Promise.all:
+// Create an array of Promises that resolve after different delays. Use Promise.all to execute a function only after all Promises have resolved.
+
+// 5.) Promisify Callback Function:
+// Convert a callback-based function (e.g., fs.readFile) into a Promise-based function using the util.promisify method.
+
+// 6.) Async/Await with Promises:
+// Write an asynchronous function using async/await that performs multiple asynchronous operations sequentially and returns the final result.
+
+// 7.)Conditional Promise Resolution:
+// Write a function that returns a Promise which resolves if a given condition is met within a specified time, otherwise rejects.
+
+// 8.) Timeout for Promises:
+// Implement a function that adds a timeout to a Promise, rejecting it if it doesn't resolve within a specified duration.
+
+// 9.) Custom Promise Implementation:
+// Create a simple implementation of the Promise class with then and catch methods.
+
+// function asyncOperation(data,t){
+//     return new Promise((resolve,reject)=>{
+//         setTimeout(()=>{
+//             resolve(data);
+//         },t);
+//     });
+// } 
+
+// const asyncOperation1 = asyncOperation({"name":"navneet",age:23},3000);
+// const asyncOperation2 = asyncOperation({"name":"sumit",age:34},5000);
+
+// // Promise.all([asyncOperation1,asyncOperation2]).then((data)=>{
+// //     console.log(data)
+// // })
+
+// // (async()=>{
+// //     console.log(typeof await Promise.all([asyncOperation1,asyncOperation2]));
+// // })();
+
+// asyncOperation1.then((data)=>{
+//     console.log(data);
+//     return new Error("data not fount");
+// }).then((data2)=>{
+//     // console.log(data2);
+// }).catch(error=>console.log(error));
+
+
+// 7.)Conditional Promise Resolution:
+// Write a function that returns a Promise which resolves if a given condition is met within a specified time, otherwise rejects.
+
+// function returnPromise(age,t){
+//     return new Promise((resolve,reject)=>{
+//         setTimeout(()=>{
+//             if(age>18){
+//                 resolve({message:"eligible!"})
+//             }else{
+//                 reject({message:"Not eligible!"})
+//             }
+//         },t)
+//     })
+// }
+
+// const result = returnPromise(10,3000);
+
+// result.then((data)=>{
+//     console.log(data);
+// }).catch(error=>console.log(error))
+
+
+// 8.) Timeout for Promises:
+// Implement a function that adds a timeout to a Promise, rejecting it if it doesn't resolve within a specified duration.
+
+// function withPromise(promise,duration){
+//     const rejectPromise = new Promise((reject,resolve)=>{
+//         setTimeout(()=>{
+//             reject({message:"Rejected due to delay."})
+//         },duration);
+//     });
+    
+//     return Promise.race([promise,rejectPromise]);
+// }
+
+// function camparePromise(){
+//     return new Promise((reject,resolve)=>{
+//         setTimeout(()=>{
+//             resolve({message:"Resolve without delay."})
+//         },2000)
+//     })
+// }
+// const result = withPromise(camparePromise(),3000);
+
+// result.then((data)=>{
+//     console.log(data)//without delay
+// }).catch((error)=>{
+//     console.log(error);//delay
+// })
+
+
+// 9.) Custom Promise Implementation:
+// Create a simple implementation of the Promise class with then and catch methods.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
